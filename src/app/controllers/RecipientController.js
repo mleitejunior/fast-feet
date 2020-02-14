@@ -6,11 +6,15 @@ class RecipientController {
     const schema = Yup.object().shape({
       name: Yup.string().required(),
       adress: Yup.string().required(),
-      number: Yup.string().required(),
+      number: Yup.number()
+        .integer()
+        .required(),
       complement: Yup.string().required(),
       state: Yup.string().required(),
       city: Yup.string().required(),
-      cep: Yup.string().required(),
+      cep: Yup.number()
+        .integer()
+        .required(),
     });
 
     if (!(await schema.isValid(req.body))) {
