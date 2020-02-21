@@ -1,6 +1,5 @@
 import * as Yup from 'yup';
 import Recipient from '../models/Recipient';
-import User from '../models/User';
 
 class RecipientController {
   async store(req, res) {
@@ -20,17 +19,6 @@ class RecipientController {
 
     if (!(await schema.isValid(req.body))) {
       return res.status(400).json({ error: 'Validation fails' });
-    }
-    
-    const userIsAdmin = await User.findOne({
-      where: {
-        id: req.userId,
-        admin: true
-      }
-    })
-
-    if (!userIsAdmin) {
-      return res.status(401).json({ error: 'Only admins can create Recipients'});
     }
 
     const recipientExists = await Recipient.findOne({
@@ -58,17 +46,6 @@ class RecipientController {
 
     if (!(await schema.isValid(req.body))) {
       return res.status(400).json({ error: 'Validation fails' });
-    }
-
-    const userIsAdmin = await User.findOne({
-      where: {
-        id: req.userId,
-        admin: true
-      }
-    })
-
-    if (!userIsAdmin) {
-      return res.status(401).json({ error: 'Only admins can edit Recipients'});
     }
 
     const recipient = await Recipient.findByPk(req.params.id);

@@ -1,0 +1,30 @@
+# Server
+APP_URL=http://localhost:3333
+NODE_ENV=development
+
+# Auth
+
+APP_SECRET=mysecret
+
+# Database
+
+DB_HOST=localhost
+DB_USER=user
+DB_PASS=password
+DB_NAME=mydatabase
+
+# Mongo
+
+MONGO_URL=
+
+# Redis
+
+REDIS_HOST=
+REDIS_POST=
+
+# Email
+
+MAIL_HOST=
+MAIL_PORT=
+MAIL_USER=
+MAIL_PASS=

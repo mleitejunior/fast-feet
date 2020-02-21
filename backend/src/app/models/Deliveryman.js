@@ -6,13 +6,10 @@ class Deliveryman extends Model {
       {
         name: Sequelize.STRING,
         email: Sequelize.STRING,
+        avatar_id: Sequelize.NUMBER,
       },
       {
         sequelize,
-      }
-    );
-
-    this.addHook('beforeSave', async user => {
       }
     );
 
